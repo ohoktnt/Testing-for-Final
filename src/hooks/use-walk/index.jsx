@@ -73,21 +73,21 @@ export default function useWalk(maxSteps) {
     } else if (pos.y >= 224 && modifier[dir].y > 0 ){
       // do nothing
     } else {
-
+      // TILE BOUNDARIES
       const newPosX = pos.x + modifier[dir].x*2
       const newPosY = pos.y + modifier[dir].y*2
       const newTile = map.getTile(newPosX/32, newPosY/32)
-      console.log('this is the new tile:')
-      console.log(newPosX/32)
-      console.log(newPosY/32)
-      console.log(newTile)
+      // console.log('this is the new tile:')
+      // console.log(newPosX/32)
+      // console.log(newPosY/32)
+      // console.log(newTile)
       if (newTile != 2) {
         setPos(prev => ({
           x: prev.x + modifier[dir].x,
           y: prev.y + modifier[dir].y
         }))
       }      
-      console.log(pos)
+      // console.log(pos)
     }
   }
 

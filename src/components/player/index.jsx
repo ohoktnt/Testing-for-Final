@@ -19,9 +19,12 @@ export default function Player({ skin }) {
     // will print the direction facing 
     const dir = e.key.replace("Arrow", "").toLowerCase()
     // refractor by placing dir statement inside the walk fn
-
-    walk(dir)
-
+    if (dir === 'down' || dir === 'right' || dir === 'left' || dir === 'up') {
+      walk(dir)
+    } else if (dir === ' '){
+      console.log('spacebar was pressed!')
+    }
+    
     // to prevent the screen from scrolling
     e.preventDefault()
   })

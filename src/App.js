@@ -11,7 +11,7 @@ function App() {
 
     <div className="zone-container">
         <Canvas />
-        <Player skin={1} />
+        <Player skin={3} />
     </div>
 
     </React.Fragment>

@@ -6,7 +6,7 @@ export default function Canvas(props) {
   const canvasRef = useRef(null)
 
   const tileAtlas = new Image();
-  tileAtlas.src = 'TestingAtlas.png';
+  tileAtlas.src = 'TestingAtlas1.png';
   
   useEffect(() => {
     const canvas = canvasRef.current
@@ -22,16 +22,6 @@ export default function Canvas(props) {
     //  map: the tile map obj
 
     console.log(tileAtlas)
-
-
-      // Promise.all([
-      //   createImageBitmap(tileAtlas, 0, 0, 32, 32),
-      //   createImageBitmap(tileAtlas, 32, 0, 32, 32)
-      // ]).then(function(tile) {
-      //   console.log('its supposedly drawing')
-      //   context.drawImage(tile[0], 0, 0);
-      //   context.drawImage(tile[1], 32, 32)
-      // }).catch((e) => console.log)
     
     tileAtlas.onload = () => {
       for (let c = 0; c < map.cols; c++) {
