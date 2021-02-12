@@ -4,7 +4,7 @@ import Sprite from '../sprite';
 export default function Actor({
                               sprite, 
                               data, 
-                              pos = {x:0, y:0}, 
+                              pos, 
                               step = 0, 
                               dir = 0
                             }) {

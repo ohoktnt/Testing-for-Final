@@ -12,7 +12,7 @@ export default function useWalk(maxSteps) {
   // animation steps
   const [step, setStep] = useState(0)
   // track position
-  const [pos, setPos] = useState({x:0, y:0});
+  const [pos, setPos] = useState( {x:0, y:0} );
 
   // setting direction map
   const directions = {
@@ -60,20 +60,34 @@ export default function useWalk(maxSteps) {
     // brute force using numbers to set map boundaries,
     // can refractor to use the map size as limits
 
+    // dev note: the pos is a little funky,
+    // make map bigger and boundary smaller
+
     // BOUNDARIES
-    if (pos.x === 0 && modifier[dir].x < 0) {
+    if (pos.x <= 0 && modifier[dir].x < 0) {
       // if on the left side, do not move pass
     } else if (pos.x >= 224 && modifier[dir].x > 0 ) {
       // if on the right side, do not move pass
-    } else if (pos.y === 0 && modifier[dir].y < 0) {
+    } else if (pos.y <= 0 && modifier[dir].y < 0) {
       // do nothing
     } else if (pos.y >= 224 && modifier[dir].y > 0 ){
       // do nothing
     } else {
-      setPos(prev => ({
-        x: prev.x + modifier[dir].x,
-        y: prev.y + modifier[dir].y
-      }))
+
+      const newPosX = pos.x + modifier[dir].x*2
+      const newPosY = pos.y + modifier[dir].y*2
+      const newTile = map.getTile(newPosX/32, newPosY/32)
+      console.log('this is the new tile:')
+      console.log(newPosX/32)
+      console.log(newPosY/32)
+      console.log(newTile)
+      if (newTile != 2) {
+        setPos(prev => ({
+          x: prev.x + modifier[dir].x,
+          y: prev.y + modifier[dir].y
+        }))
+      }      
+      console.log(pos)
     }
   }
 

@@ -5,11 +5,6 @@ import Canvas from './components/canvas';
 import Player from './components/player';
 
 function App() {
-  const appStyle = {
-    width: "400px",
-    height: "400px",
-    border: "1px solid black"
-  }
 
   return (
     <React.Fragment>
