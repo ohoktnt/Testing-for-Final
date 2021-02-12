@@ -2,6 +2,8 @@
 
 import { useState} from 'react';
 
+import { map } from '../../helpers/map';
+
 // maxSteps is the max number of steps in each walk animation
 // in this case is 3
 export default function useWalk(maxSteps) {
@@ -55,10 +57,24 @@ export default function useWalk(maxSteps) {
 
   // using the chart, updates both y and x based on direction
   function move(dir) {
-    setPos(prev => ({
-      x: prev.x + modifier[dir].x,
-      y: prev.y + modifier[dir].y
-    }))
+    // brute force using numbers to set map boundaries,
+    // can refractor to use the map size as limits
+
+    // BOUNDARIES
+    if (pos.x === 0 && modifier[dir].x < 0) {
+      // if on the left side, do not move pass
+    } else if (pos.x >= 224 && modifier[dir].x > 0 ) {
+      // if on the right side, do not move pass
+    } else if (pos.y === 0 && modifier[dir].y < 0) {
+      // do nothing
+    } else if (pos.y >= 224 && modifier[dir].y > 0 ){
+      // do nothing
+    } else {
+      setPos(prev => ({
+        x: prev.x + modifier[dir].x,
+        y: prev.y + modifier[dir].y
+      }))
+    }
   }
 
   // to be used by the character
