@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
 
+import Canvas from './components/canvas';
+import Player from './components/player';
+
 function App() {
+  const appStyle = {
+    width: "400px",
+    height: "400px",
+    border: "1px solid black"
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <React.Fragment>
+
+    <div className="zone-container">
+        <Canvas />
+        <Player skin={1} />
     </div>
+
+    </React.Fragment>
   );
 }
 
