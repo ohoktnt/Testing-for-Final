@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StoreList from '../store/storeList'
 
 export default function Store(props) {
-  const [open, setOpen] = useState (true)
+  // const [open, setOpen] = useState (true)
 
   const store = {
     id: 3,
@@ -27,15 +27,12 @@ export default function Store(props) {
     border: '1px solid black'
   }
 
-  function back() {
-    setOpen(false)
-  }
 
 
   return (
     <div>
       <h1 style={storeStyle}>I AM STORE</h1>
-      {open && <StoreList store={store} onClose={back} /> }
+      {props.open && <StoreList store={store} onClose={props.back} /> }
     </div>
   )
   

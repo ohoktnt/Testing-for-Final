@@ -7,7 +7,7 @@ import useWalk from '../../hooks/use-walk';
 import { map } from '../../helpers/map';
 
 
-export default function Player({ skin }) {
+export default function Player(props) {
   const { dir, step, walk, pos } = useWalk(3);
   const data = {
     h: 32,
@@ -28,8 +28,9 @@ export default function Player({ skin }) {
 
       // if i set each store id based on tile number
       // i can pass that as the id of the store and use db call
-
-    }
+      props.openStore();
+      console.log('tried to open store')
+    } 
     
     // to prevent the screen from scrolling
     e.preventDefault()
@@ -37,7 +38,7 @@ export default function Player({ skin }) {
 
   return ( 
     <Actor 
-      sprite={`char${skin}.png`} 
+      sprite={`char${props.skin}.png`} 
       data={data} 
       step={step} 
       dir={dir}
