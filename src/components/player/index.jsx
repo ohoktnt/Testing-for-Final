@@ -4,6 +4,7 @@ import Actor from '../actor';
 
 import useKeyPress from '../../hooks/use-key-press';
 import useWalk from '../../hooks/use-walk';
+import { map } from '../../helpers/map';
 
 
 export default function Player({ skin }) {
@@ -21,8 +22,13 @@ export default function Player({ skin }) {
     // refractor by placing dir statement inside the walk fn
     if (dir === 'down' || dir === 'right' || dir === 'left' || dir === 'up') {
       walk(dir)
-    } else if (dir === ' '){
-      console.log('spacebar was pressed!')
+    } else if (dir === ' ' && map.getTile(pos.x/32, pos.y/32) === 3){
+      console.log('inside the store area!')
+      // can have a function to open the store 
+
+      // if i set each store id based on tile number
+      // i can pass that as the id of the store and use db call
+
     }
     
     // to prevent the screen from scrolling
